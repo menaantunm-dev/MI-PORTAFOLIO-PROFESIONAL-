@@ -17,5 +17,5 @@ A continuación se presentan los accesos oficiales para interactuar con el proye
 
 - **Repositorio de Código (GitHub):** https://github.com/menaantunm-dev/MI-PORTAFOLIO-PROFESIONAL- 
 - **Despliegue Principal (GitHub Pages):** https://menaantunm-dev.github.io/MI-PORTAFOLIO-PROFESIONAL-/
-- **Despliegue Alternativo (Vercel):** mi-portafolio-profesional-nu.vercel.app
+- **Despliegue Alternativo (Vercel):** mi-portafolio-profesional-nu.vercel.app  mi-portafolio-profesional-4zwdfkaxz.vercel.app
 
