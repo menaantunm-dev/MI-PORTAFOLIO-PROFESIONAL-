@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>María Mercedes Mena Antun | Portafolio Cyberpunk</title>
+    <meta name="description" content="Portafolio profesional de María Mercedes Mena">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-dark: #000000;
+            --bg-dark-card: #0a0a0a;
+            --neon-cyan: #00f3ff;
+            --neon-green: #39ff14;
+            --neon-yellow: #fffb00;
+            --text-dark: #ffffff;
+            --glow-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+            --glow-green: 0 0 10px rgba(57, 255, 20, 0.5);
+            --transition-speed: 0.4s;
+        }
+
+        [data-bs-theme="light"] {
+            --bg-dark: #f8f9fa;
+            --bg-dark-card: #ffffff;
+            --neon-cyan: #0088cc;
+            --neon-green: #28a745;
+            --neon-yellow: #d39e00;
+            --text-dark: #212529;
+            --glow-shadow: 0 0 5px rgba(0, 136, 204, 0.3);
+            --glow-green: 0 0 5px rgba(40, 147, 69, 0.3);
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-dark);
+            font-family: 'Rajdhani', sans-serif;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        h1, h2, h3, h4, h5, h6, .navbar-brand {
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 2px;
+        }
+
+        /* Canvas de Fondo Matrix */
+        #matrix-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            opacity: 0.15;
+            pointer-events: none;
+            transition: opacity var(--transition-speed);
+        }
+
+        [data-bs-theme="light"] #matrix-canvas {
+            opacity: 0.04;
+        }
+
+        /* Navbar Neón */
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.85) !important;
+            border-bottom: 2px solid var(--neon-cyan);
+            box-shadow: var(--glow-shadow);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Efectos Neón en Texto de Navegación */
+        .navbar-nav .nav-link {
+            color: #ffffff !important;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-shadow: 0 0 5px var(--neon-cyan);
+            transition: all 0.3s ease;
+            margin: 0 5px;
+        }
+
+        .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
+            color: var(--neon-green) !important;
+            text-shadow: 0 0 10px var(--neon-green);
+            transform: translateY(-2px);
+        }
+
+        .neon-text-cyan {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        .neon-text-green {
+            color: var(--neon-green);
+            text-shadow: 0 0 10px var(--neon-green);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 150px 0 100px 0;
+            position: relative;
+        }
+
+        .hero-img {
+    border: 3px solid var(--neon-cyan);
+    box-shadow: var(--glow-shadow);
+    border-radius: 15px; /* Mantiene tus bordes redondeados elegantes */
+    width: 100%;
+    max-width: 240px; /* Reducimos el ancho máximo en móviles */
+    height: 280px; /* Forzamos una altura fija más pequeña y estética */
+    object-fit: cover; /* Recorta la foto automáticamente para que no se deforme */
+    object-position: top center; /* Centra el enfoque en tu rostro */
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.4s, box-shadow 0.4s;
+}
+
+.hero-img:hover {
+    transform: translateY(-8px) rotate(1.5deg) scale(1.03);
+    border-color: var(--neon-green);
+    box-shadow: var(--glow-green);
+}
+
+/* Ajuste para que en la computadora se vea compacto y fino */
+@media (min-width: 768px) {
+    .hero-img {
+        max-width: 260px; /* Tamaño ideal en PC, ni muy grande ni muy pequeña */
+        height: 320px; /* Altura controlada para que no sature la pantalla */
+    }
+}
+/* Cuando la pantalla sea mediana o grande (computadoras y laptops) */
+@media (min-width: 768px) {
+    .hero-img {
+        max-width: 320px; /* Vuelve a su tamaño original en PC */
+    }
+}
+.hero-img:hover {
+    transform: translateY(-8px) rotate(1.5deg) scale(1.03);
+    border-color: var(--neon-green);
+    box-shadow: var(--glow-green);
+}
+
+        .hero-img:hover {
+            transform: translateY(-8px) rotate(1.5deg) scale(1.03);
+            border-color: var(--neon-green);
+            box-shadow: var(--glow-green);
+        }
+
+        /* Tarjetas de Proyectos y Experiencia */
+        .cyber-card {
+            background: var(--bg-dark-card);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            border-radius: 10px;
+            padding: 25px;
+            height: 100%;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cyber-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--neon-cyan);
+            transition: all 0.3s ease;
+        }
+
+        .cyber-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon-green);
+            box-shadow: var(--glow-green);
+        }
+
+        /* Contenedor Multimedia de Video */
+        .project-video-container {
+            width: 100%;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            background: #000;
+            margin-bottom: 15px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
+        }
+
+        .project-video-container video {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Badges Tecnológicos */
+        .tech-badge {
+            background: rgba(0, 243, 255, 0.1);
+            border: 1px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin: 3px;
+            display: inline-block;
+        }
+
+        .btn-dodgerblue {
+            background-color: transparent;
+            border: 2px solid #0026ff;
+            color: #0026ff;
+            text-shadow: 0 0 5px rgba(0, 38, 255, 0.5);
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-dodgerblue:hover {
+            background-color: #0026ff;
+            color: #ffffff;
+            box-shadow: 0 0 15px #0026ff;
+        }
+
+        .cyber-input {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            color: #ffffff;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        /* Estilos de Redes Sociales en el Footer */
+        .social-links a {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        [data-bs-theme="light"] .social-links a {
+            color: #555555;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+        }
+
+        .social-links a.fb-hover:hover { color: #1877f2; text-shadow: 0 0 10px #1877f2; }
+        .social-links a.ig-hover:hover { color: #e1306c; text-shadow: 0 0 10px #e1306c; }
+        .social-links a.wa-hover:hover { color: #25d366; text-shadow: 0 0 10px #25d366; }
+        .social-links a.yt-hover:hover { color: #ff0000; text-shadow: 0 0 10px #ff0000; }
+    </style>
+</head>
+<body>
+
+    <canvas id="matrix-canvas"></canvas>
+
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+        <div class="container">
+            <a class="navbar-brand neon-text-cyan fw-bold" href="#">&gt;_ INGENIERA MENA</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-center">
+                    <li class="nav-item"><a class="nav-link active" href="#inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tecnologias">Tecnologías</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#proyectos">Proyectos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experiencia">Experiencia</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                </ul>
+                <div class="text-center ms-lg-3 mt-3 mt-lg-0">
+                    <button id="theme-toggle-btn" class="btn btn-outline-info rounded-circle p-2" title="Cambiar Modo">
+                        <i id="theme-icon" class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="inicio" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center flex-column-reverse flex-md-row g-5">
+                <div class="col-md-7 text-center text-md-start">
+                    <h5 class="neon-text-green text-uppercase mb-2">⚡ Bienvenidos a mi entorno de desarrollo web</h5>
+                    <h1 class="display-4 fw-black text-uppercase mb-3">María Mercedes Mena Antun</h1>
+                    <h3 class="h4 neon-text-cyan text-uppercase mb-4">ING. EN SISTEMAS  y DESIGNER</h3> 
+                    <p class="lead mb-4" style="text-align: left;">
+                        Hola, Soy estudiante de ingeniería en sistemas de la Universidad Dominicana O&M. Me apasiona diseñar, innovar y aprender continuamente de diferentes áreas de la tecnología, implementando enfoques minimalistas, estructuras completamente responsive, optimización SEO de alto nivel y la adopción estricta de buenas prácticas de programación.
+                    </p>
+                    <div class="pt-2">
+                        <a href="#contacto" class="btn btn-dodgerblue btn-lg text-uppercase me-3">Contrátame</a>
+                        <a href="#proyectos" class="btn btn-outline-light btn-lg text-uppercase">Ver Trabajos</a>
+                    </div>
+                </div>
+                <div class="col-md-5 d-flex justify-content-center">
+                    <div class="position-relative">
+                        <img src="mi foto.jpg" alt="María Mercedes Mena Antun" class="hero-img img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tecnologias" class="py-5 bg-black bg-opacity-20">
+        <div class="container text-center">
+            <h2 class="neon-text-cyan text-uppercase mb-5">Tecnologías Modernas</h2>
+            <div class="row row-cols-2 row-cols-md-4 g-4 justify-content-center">
+                <div class="col"><div class="cyber-card"><i class="fab fa-csharp fa-3x text-info mb-3"></i><h5>C# / .NET</h5></div></div>
+                <div class="col"><div class="cyber-card"><i class="fab fa-html5 fa-3x text-danger mb-3"></i><h5>HTML5</h5></div></div>
+                <div class="col"><div class="cyber-card"><i class="fab fa-css3-alt fa-3x text-primary mb-3"></i><h5>CSS3</h5></div></div>
+                <div class="col"><div class="cyber-card"><i class="fab fa-bootstrap fa-3x text-purple mb-3" style="color:#7952b3;"></i><h5>Bootstrap 5</h5></div></div>
+                <div class="col"><div class="cyber-card"><i class="fas fa-server fa-3x text-warning mb-3"></i><h5>Infraestructura IT</h5></div></div>
+                <div class="col"><div class="cyber-card"><i class="fab fa-linux fa-3x text-light mb-3"></i><h5>Linux Admin</h5></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="proyectos" class="py-5">
+        <div class="container">
+            <h2 class="text-center neon-text-green text-uppercase mb-5">Proyectos Destacados</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="cyber-card">
+                        <div class="project-video-container">
+                            <video controls preload="metadata">
+                                <source src="video-portafolio.mp4" type="video/mp4">
+                                Tu navegador no soporta reproducción de video.
+                            </video>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div class="project-icon-box text-cyan"><i class="fas fa-laptop-code fa-2x"></i></div>
+                            <span class="badge bg-dark border border-info text-info text-uppercase">Web</span>
+                        </div>
+                        <h4 class="h5 text-uppercase mb-3">Portafolio Profesional</h4>
+                        <p class="small text-muted mb-4">Diseño web moderno e hiper-responsivo orientado a la demostración de aptitudes de ingeniería.</p>
+                        <div class="mb-3">
+                            <span class="tech-badge">HTML5</span>
+                            <span class="tech-badge">CSS3</span>
+                            <span class="tech-badge">Bootstrap 5</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="cyber-card">
+                        <div class="project-video-container">
+                            <video controls preload="metadata">
+                                <source src="video-maui.mp4" type="video/mp4">
+                                Tu navegador no soporta reproducción de video.
+                            </video>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div class="project-icon-box text-green"><i class="fas fa-mobile-alt fa-2x"></i></div>
+                            <span class="badge bg-dark border border-success text-success text-uppercase">Móvil</span>
+                        </div>
+                        <h4 class="h5 text-uppercase mb-3">MAUI Cobros App</h4>
+                        <p class="small text-muted mb-4">Aplicación móvil nativa diseñada para la optimización y administración de registros de cobros financieros.</p>
+                        <div class="mb-3">
+                            <span class="tech-badge">.NET MAUI</span>
+                            <span class="tech-badge">C#</span>
+                            <span class="tech-badge">XAML</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="cyber-card">
+                        <div class="project-video-container">
+                            <video controls preload="metadata">
+                                <source src="video-datacenter.mp4" type="video/mp4">
+                                Tu navegador no soporta reproducción de video.
+                            </video>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div class="project-icon-box text-warning"><i class="fas fa-server fa-2x"></i></div>
+                            <span class="badge bg-dark border border-warning text-warning text-uppercase">Infraestructura</span>
+                        </div>
+                        <h4 class="h5 text-uppercase mb-3">Data Center Design</h4>
+                        <p class="small text-muted mb-4">Modelado y layout lógico estructural de un centro de datos empresarial robusto bajo normativas TIA-942.</p>
+                        <div class="mb-3">
+                            <span class="tech-badge">TIA-942</span>
+                            <span class="tech-badge">Redes</span>
+                            <span class="tech-badge">Linux Server</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experiencia" class="py-5 bg-black bg-opacity-20">
+        <div class="container">
+            <h2 class="text-center neon-text-cyan text-uppercase mb-5">Experiencia Laboral</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="cyber-card">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <h4 class="h5 text-uppercase mb-0">Ingeniería en Sistemas</h4>
+                            <span class="badge bg-dark border border-success text-success text-uppercase">En Curso</span>
+                        </div>
+                        <h6 class="text-muted small mb-3">Universidad Dominicana O&M</h6>
+                        <p class="small mb-0">Formación sólida en desarrollo de algoritmos, estructuras de datos, diseño de redes y administración de bases de datos estructuradas.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="cyber-card">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <h4 class="h5 text-uppercase mb-0">Desarrollador Independiente</h4>
+                            <span class="badge bg-dark border border-info text-info text-uppercase">Actual</span>
+                        </div>
+                        <h6 class="text-muted small mb-3">Proyectos Autónomos</h6>
+                        <p class="small mb-0">Construcción y despliegue de soluciones tecnológicas personalizadas para la web, optimización de layouts responsive y mantenimiento de entornos de testing de software locales.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="py-5">
+        <div class="container" style="max-width: 600px;">
+            <h2 class="text-center neon-text-green text-uppercase mb-5">Establecer Enlace</h2>
+            <div class="cyber-card">
+                <form action="#" method="POST">
+                    <div class="mb-3">
+                        <label class="form-label text-uppercase small tracking-wider">Nombre del Operador</label>
+                        <input type="text" class="form-control cyber-input" required placeholder="Tu nombre...">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label text-uppercase small tracking-wider">Canal de Comunicación (Email)</label>
+                        <input type="email" class="form-control cyber-input" required placeholder="tu@correo.com">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label text-uppercase small tracking-wider">Transmisión de Mensaje</label>
+                        <textarea class="form-control cyber-input" rows="4" required placeholder="Escribe tu propuesta o mensaje aquí..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-dodgerblue w-100 text-uppercase py-2">Enviar Transmisión</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center py-4 border-top border-secondary border-opacity-25 mt-5">
+        <div class="social-links mb-3">
+            <a href="#" target="_blank" class="mx-2 fb-hover" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" target="_blank" class="mx-2 ig-hover" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank" class="mx-2 wa-hover" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" target="_blank" class="mx-2 yt-hover" title="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p class="mb-0 small text-muted">&copy; 2026 María Mercedes Mena Antun. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        const katakana = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789データシステムエンジニア";
+        const alphabet = katakana.split("");
+
+        const fontSize = 16;
+        let columns = canvas.width / fontSize;
+        let rainDrops = [];
+
+        function initRain() {
+            columns = canvas.width / fontSize;
+            rainDrops = [];
+            for (let x = 0; x < columns; x++) {
+                rainDrops[x] = 1;
+            }
+        }
+        initRain();
+        window.addEventListener('resize', initRain);
+
+        function drawMatrix() {
+            const isLight = document.documentElement.getAttribute('data-bs-theme') === 'light';
+            ctx.fillStyle = isLight ? 'rgba(248, 249, 250, 0.05)' : 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = isLight ? '#0088cc' : '#39ff14';
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < rainDrops.length; i++) {
+                const text = alphabet[Math.floor(Math.random() * alphabet.length)];
+                ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+
+                if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    rainDrops[i] = 0;
+                }
+                rainDrops[i]++;
+            }
+        }
+        setInterval(drawMatrix, 30);
+
+        const themeToggleBtn = document.getElementById('theme-toggle-btn');
+        const themeIcon = document.getElementById('theme-icon');
+
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-bs-theme');
+            let newTheme = 'dark';
+            
+            if (currentTheme === 'dark') {
+                newTheme = 'light';
+                themeIcon.className = 'fas fa-sun';
+            } else {
+                newTheme = 'dark';
+                themeIcon.className = 'fas fa-moon';
+            }
+            
+            document.documentElement.setAttribute('data-bs-theme', newTheme);
+        });
+    </script>
+</body>
+</html>
