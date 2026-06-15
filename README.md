@@ -9,16 +9,15 @@ Para la construcción de este sitio web se emplearon tecnologías modernas de de
 - **HTML5:** Estructuración semántica del contenido.
 - **CSS3 / Bootstrap:** Estilos personalizados, grillas y componentes responsivos para visualización en móviles y computadoras.
 - **JavaScript (Opcional):** Interactividad básica y dinamismo en la página.
-- **Inteligencia Artificial:** Utilizada de manera estratégica para la optimización de copys, prompts de diseño y refinamiento de secciones de marca personal.
+- **Inteligencia Artificial:** Utilizada de manera estratégica para la optimización de copys, prompts de diseño y refinamiento de secciones de marca personal GEMINI.
 
  📸 Capturas de Pantalla
 *(Una vez desplegado el sitio, puedes guardar una imagen en tu carpeta `img/` y enlazarla aquí)*
 ![Vista Principal del Portafolio](img/captura-portafolio.png)
 
  🌐 Enlaces del Proyecto
+  URL PUBLICA https://menaantunm-dev.github.io/MI-PORTAFOLIO-PROFESIONAL-/
 
-
- 
 A continuación se presentan los accesos oficiales para interactuar con el proyecto y revisar el entorno de producción:
 
 - **Repositorio de Código (GitHub):** [Enlace al repositorio](https://github.com/TU_USUARIO/TU_REPOSITORIO)
