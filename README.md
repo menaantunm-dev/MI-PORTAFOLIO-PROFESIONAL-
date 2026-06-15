@@ -16,6 +16,9 @@ Para la construcción de este sitio web se emplearon tecnologías modernas de de
 ![Vista Principal del Portafolio](img/captura-portafolio.png)
 
  🌐 Enlaces del Proyecto
+
+
+ 
 A continuación se presentan los accesos oficiales para interactuar con el proyecto y revisar el entorno de producción:
 
 - **Repositorio de Código (GitHub):** [Enlace al repositorio](https://github.com/TU_USUARIO/TU_REPOSITORIO)
