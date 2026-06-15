@@ -11,14 +11,11 @@ Para la construcción de este sitio web se emplearon tecnologías modernas de de
 - **JavaScript (Opcional):** Interactividad básica y dinamismo en la página.
 - **Inteligencia Artificial:** Utilizada de manera estratégica para la optimización de copys, prompts de diseño y refinamiento de secciones de marca personal GEMINI.
 
- 📸 Capturas de Pantalla
-mi foto.jpg
-
 🔗 *Enlaces del Proyecto*
 
 A continuación se presentan los accesos oficiales para interactuar con el proyecto y revisar el entorno de producción:
 
 - **Repositorio de Código (GitHub):** https://github.com/menaantunm-dev/MI-PORTAFOLIO-PROFESIONAL- 
 - **Despliegue Principal (GitHub Pages):** https://menaantunm-dev.github.io/MI-PORTAFOLIO-PROFESIONAL-/
-- **Despliegue Alternativo (Vercel):** [Ver Portafolio en Vercel](https://nombre-de-tu-proyecto.vercel.app)
+- **Despliegue Alternativo (Vercel):** mi-portafolio-profesional-nu.vercel.app
 
